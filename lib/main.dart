@@ -1,5 +1,4 @@
 import 'dart:core';
-import 'dart:core';
 
 import 'package:flutter/material.dart';
 
@@ -26,7 +25,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _controller = PageController(
-    initialPage: 8,
+    initialPage: 0,
   );
   @override
   void dispose() {
