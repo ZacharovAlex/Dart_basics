@@ -2,15 +2,16 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 
-import 'numberEight/view.dart';
-import 'numberFive/view.dart';
-import 'numberFour/view.dart';
-import 'numberNine/view_nine.dart';
-import 'numberOne/view.dart';
-import 'numberSeven/view.dart';
-import 'numberSix/view.dart';
-import 'numberThree/view.dart';
-import 'numberTwo/view.dart';
+import 'number_one/view.dart';
+import 'number_three/view.dart';
+import 'number_two/view.dart';
+import 'number_four/view.dart';
+import 'number_five/view.dart';
+import 'number_six/view.dart';
+import 'number_seven/view.dart';
+import 'number_eight/view.dart';
+import 'number_nine/view_nine.dart';
+
 
 void main() {
   runApp( const MyApp());

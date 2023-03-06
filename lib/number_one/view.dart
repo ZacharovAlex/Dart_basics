@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skillboxdemo/numberOne/utils.dart';
-import 'package:validators/validators.dart';
+import 'package:skillboxdemo/number_one/utils.dart';
+
 import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
 
@@ -19,9 +19,7 @@ class _NumberOneViewState extends State<NumberOneView> {
   int? leastCommonMultiple = 0;
   int? greatestCommonDivisor = 0;
   List<int> simpleDelimeters = [];
-  bool validateNumber=false;
-
-
+  bool validateNumber = false;
 
   void incrementField() {
     final inputText = int.tryParse(_myControllerOne.text);
@@ -31,10 +29,9 @@ class _NumberOneViewState extends State<NumberOneView> {
     setState(() {});
   }
 
-  validate(String s){
-    validateNumber= s.isNumber();
-    setState(() {
-    });
+  validate(String s) {
+    validateNumber = s.isNumber();
+    setState(() {});
   }
 
   void decrementField() {
@@ -55,7 +52,6 @@ class _NumberOneViewState extends State<NumberOneView> {
     simpleDelimeters = result.simpleDelimeters!;
     setState(() {});
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,17 +95,19 @@ class _NumberOneViewState extends State<NumberOneView> {
                 SizedBox(
                   width: 70,
                   child: MyFormField(
-
                     controller: _myControllerOne,
                     hintText: 'Enter 0-9 digits only',
                     digitQuantity: 7,
-                    maxLines: 1, isValid: validateNumber,validation: validate,
+                    maxLines: 1,
+                    isValid: validateNumber,
+                    validation: validate,
                   ),
                 ),
                 const SizedBox(
                   width: 15,
                 ),
-                ElevatedButton(onPressed:validateNumber? incrementField:null, child: const Text('Добавить число')),
+                ElevatedButton(
+                    onPressed: validateNumber ? incrementField : null, child: const Text('Добавить число')),
                 const SizedBox(
                   width: 15,
                 ),
