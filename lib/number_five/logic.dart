@@ -1,5 +1,5 @@
 class FindNumbersWords {
-  final List<String> data;
+  final List<String> _data;
   static const Map<String, int> _numbers = {
     'one': 1,
     'two': 2,
@@ -13,11 +13,11 @@ class FindNumbersWords {
     'zero': 0,
   };
 
-  FindNumbersWords(this.data);
+  FindNumbersWords(this._data);
 
   Set<int> findNumbers() {
     var answerSet = <int>{};
-    for (var word in data) {
+    for (var word in _data) {
       word = word.replaceAll(' ', '');
       if (_numbers.containsKey(word.toLowerCase())) {
         answerSet.add(_numbers[word]!);

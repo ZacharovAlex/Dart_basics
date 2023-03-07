@@ -1,10 +1,10 @@
 import 'dart:math';
 
 class BinaryDecimalSystem {
-  final String data;
-  final int accuracy;
+  final String _data;
+  final int _accuracy;
 
-  BinaryDecimalSystem(this.data, this.accuracy);
+  BinaryDecimalSystem(this._data, this._accuracy);
 
   List<int> _stringToArray(String x) {
     var result = <int>[];
@@ -16,13 +16,13 @@ class BinaryDecimalSystem {
 
   String toDecimal() {
     bool isNegative = false;
-    if (double.tryParse(data) == 0) {
+    if (double.tryParse(_data) == 0) {
       return '0';
     }
-    if (data.startsWith('-')) {
+    if (_data.startsWith('-')) {
       isNegative = true;
     }
-    final binaryData = data.replaceAll('-', '');
+    final binaryData = _data.replaceAll('-', '');
     var dataInt = '';
     var dataFloat = '';
     var resFloat = 0.0;
@@ -36,10 +36,10 @@ class BinaryDecimalSystem {
 
       dataFloatArray = _stringToArray(dataFloat);
 
-      if (dataFloatArray.length < accuracy) {
-        dataFloatArray.addAll(List<int>.filled(accuracy - dataFloatArray.length, 0));
+      if (dataFloatArray.length < _accuracy) {
+        dataFloatArray.addAll(List<int>.filled(_accuracy - dataFloatArray.length, 0));
       }
-      for (var i = 0; i < accuracy; i++) {
+      for (var i = 0; i < _accuracy; i++) {
         resFloat += dataFloatArray[i] / pow(2, i + 1);
       }
     } else {
@@ -58,11 +58,11 @@ class BinaryDecimalSystem {
   }
 
   String toBinary() {
-    if (double.parse(data) == 0) {
+    if (double.parse(_data) == 0) {
       return '0';
     }
     bool isNegative = false;
-    if (data.startsWith('-')) {
+    if (_data.startsWith('-')) {
       isNegative = true;
     }
     var result = '';
@@ -71,13 +71,13 @@ class BinaryDecimalSystem {
     var dataInt = 0;
     var dataFloat = 0.0;
     bool isFloat = false;
-    if (data.contains('.')) {
+    if (_data.contains('.')) {
       isFloat = true;
-      dataInt = _intSide(data);
-      dataFloat = double.parse('0.${_floatSide(data)}') * 2;
+      dataInt = _intSide(_data);
+      dataFloat = double.parse('0.${_floatSide(_data)}') * 2;
       dataFloat = double.parse('0.${_floatSide(dataFloat.toString())}');
     } else {
-      dataInt = int.parse(data);
+      dataInt = int.parse(_data);
     }
 
     if (dataInt != 0) {
@@ -92,7 +92,7 @@ class BinaryDecimalSystem {
     }
     if (isFloat) {
       if (dataFloat != 0) {
-        while (int.parse(_floatSide((dataFloat).toString())) != 0 && resFloat.length < accuracy) {
+        while (int.parse(_floatSide((dataFloat).toString())) != 0 && resFloat.length < _accuracy) {
           _intSide(dataFloat.toString()) != 0 ? resFloat.add('1') : resFloat.add('0');
 
           dataFloat = double.parse('0.${_floatSide(dataFloat.toString())}') * 2;

@@ -9,13 +9,13 @@ class Result {
 }
 
 class NodNok {
-  final List<int> data;
+  final List<int> _data;
 
-  NodNok(this.data);
+  NodNok(this._data);
 
   Result primeFactors() {
     var isNegative = false;
-    var n = data.last;
+    var n = _data.last;
     if (n < 0) {
       n = n.abs();
       isNegative = true;
@@ -58,16 +58,16 @@ class NodNok {
 
   Result gcdList() {
     List<int> result = [0, 0];
-    for (var i = 0; i < data.length - 1; i++) {
-      if (data[i] < 0) {
+    for (var i = 0; i < _data.length - 1; i++) {
+      if (_data[i] < 0) {
         throw 'Нельзя отрицательные числа!';
       }
       if (i > 0) {
-        result[0] = _gcd(result[0], data[i + 1]);
-        result[1] = _lcm(result[1], data[i + 1]);
+        result[0] = _gcd(result[0], _data[i + 1]);
+        result[1] = _lcm(result[1], _data[i + 1]);
       } else {
-        result[0] = _gcd(data[i], data[i + 1]);
-        result[1] = _lcm(data[i], data[i + 1]);
+        result[0] = _gcd(_data[i], _data[i + 1]);
+        result[1] = _lcm(_data[i], _data[i + 1]);
       }
     }
     return Result(greatestCommonDivisor: result[0], leastCommonMultiple: result[1]);

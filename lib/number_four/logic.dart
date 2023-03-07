@@ -1,11 +1,11 @@
 class FindWords {
-  final List<String> data;
+  final List<String> _data;
 
-  FindWords(this.data);
+  FindWords(this._data);
 
   Map<String, int> findWords() {
     var answerMap = <String, int>{};
-    for (var word in data) {
+    for (var word in _data) {
       answerMap.containsKey(word) ? answerMap.update(word, (value) => value + 1) : answerMap[word] = 1;
     }
     return answerMap;
