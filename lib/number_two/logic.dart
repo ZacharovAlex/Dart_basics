@@ -6,7 +6,7 @@ class BinaryDecimalSystem {
 
   BinaryDecimalSystem(this.data, this.accuracy);
 
-  List<int> stringToArray(String x) {
+  List<int> _stringToArray(String x) {
     var result = <int>[];
     for (var i = 0; i < x.length; i++) {
       result.add(int.parse(x[i]));
@@ -31,10 +31,10 @@ class BinaryDecimalSystem {
     var isFloat = false;
     if (binaryData.contains('.')) {
       isFloat = true;
-      dataInt = intSide(binaryData).toString();
-      dataFloat = floatSide(binaryData);
+      dataInt = _intSide(binaryData).toString();
+      dataFloat = _floatSide(binaryData);
 
-      dataFloatArray = stringToArray(dataFloat);
+      dataFloatArray = _stringToArray(dataFloat);
 
       if (dataFloatArray.length < accuracy) {
         dataFloatArray.addAll(List<int>.filled(accuracy - dataFloatArray.length, 0));
@@ -46,7 +46,7 @@ class BinaryDecimalSystem {
       dataInt = binaryData;
     }
 
-    for (var digit in stringToArray(dataInt)) {
+    for (var digit in _stringToArray(dataInt)) {
       resInt <<= 1;
       resInt |= digit;
     }
@@ -73,9 +73,9 @@ class BinaryDecimalSystem {
     bool isFloat = false;
     if (data.contains('.')) {
       isFloat = true;
-      dataInt = intSide(data);
-      dataFloat = double.parse('0.${floatSide(data)}') * 2;
-      dataFloat = double.parse('0.${floatSide(dataFloat.toString())}');
+      dataInt = _intSide(data);
+      dataFloat = double.parse('0.${_floatSide(data)}') * 2;
+      dataFloat = double.parse('0.${_floatSide(dataFloat.toString())}');
     } else {
       dataInt = int.parse(data);
     }
@@ -92,10 +92,10 @@ class BinaryDecimalSystem {
     }
     if (isFloat) {
       if (dataFloat != 0) {
-        while (int.parse(floatSide((dataFloat).toString())) != 0 && resFloat.length < accuracy) {
-          intSide(dataFloat.toString()) != 0 ? resFloat.add('1') : resFloat.add('0');
+        while (int.parse(_floatSide((dataFloat).toString())) != 0 && resFloat.length < accuracy) {
+          _intSide(dataFloat.toString()) != 0 ? resFloat.add('1') : resFloat.add('0');
 
-          dataFloat = double.parse('0.${floatSide(dataFloat.toString())}') * 2;
+          dataFloat = double.parse('0.${_floatSide(dataFloat.toString())}') * 2;
         }
       } else {
         resFloat.add('1');
@@ -110,21 +110,13 @@ class BinaryDecimalSystem {
     return isNegative ? '-$result' : result;
   }
 
-  String arrayToStringReverse(List<int> arrayOfBinary) {
-    var result = '';
-    for (var i = arrayOfBinary.length - 1; i >= 0; i--) {
-      result += arrayOfBinary[i].toString();
-    }
-    return result;
-  }
-
-  String floatSide(String x) {
+  String _floatSide(String x) {
     String result = '';
     result = x.substring(x.indexOf('.') + 1, x.length);
     return result;
   }
 
-  int intSide(String x) {
+  int _intSide(String x) {
     int result = 0;
     result = int.parse(x.substring(0, x.indexOf('.')));
     return result;

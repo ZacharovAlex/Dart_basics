@@ -13,21 +13,21 @@ class MyPoint {
   }
 
   double distanceTo(MyPoint b) {
-    final distance = distanceBetween(MyPoint(x: x, y: y, z: z), b);
+    final distance = _distanceBetween(this, b);
     return distance;
   }
 
-  double distanceBetween(MyPoint a, MyPoint b) {
+  double _distanceBetween(MyPoint a, MyPoint b) {
     final distance = sqrt(pow((b.x - a.x), 2) + pow((b.y - a.y), 2) + pow((b.z - a.z), 2));
     return distance;
   }
 
   double triangleSquare(MyPoint b, MyPoint c) {
     var square = 0.0;
-    MyPoint a = MyPoint(x: x, y: y, z: z);
-    var sideA = distanceBetween(a, b);
-    var sideB = distanceBetween(a, c);
-    var sideC = distanceBetween(b, c);
+    MyPoint a = this;
+    var sideA = _distanceBetween(a, b);
+    var sideB = _distanceBetween(a, c);
+    var sideC = _distanceBetween(b, c);
     var p = (sideA + sideB + sideC) / 2;
     square = sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     return square;

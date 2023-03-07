@@ -31,26 +31,26 @@ class NodNok {
     return Result(simpleDelimeters: primeFactors);
   }
 
-  swap(int a, int b) {
+  _swap(int a, int b) {
     var c = a;
     a = b;
     b = c;
   }
 
-  int gcd(int a, int b) {
+  int _gcd(int a, int b) {
     if (a < b) {
-      swap(a, b);
+      _swap(a, b);
     }
     if (b != 0) {
-      return gcd(b, a % b);
+      return _gcd(b, a % b);
     } else {
       return a;
     }
   }
 
-  int lcm(int a, int b) {
+  int _lcm(int a, int b) {
     try {
-      return (a / gcd(a, b) * b).toInt();
+      return (a / _gcd(a, b) * b).toInt();
     } catch (e) {
       return 0;
     }
@@ -59,12 +59,15 @@ class NodNok {
   Result gcdList() {
     List<int> result = [0, 0];
     for (var i = 0; i < data.length - 1; i++) {
+      if (data[i] < 0) {
+        throw 'Нельзя отрицательные числа!';
+      }
       if (i > 0) {
-        result[0] = gcd(result[0], data[i + 1]);
-        result[1] = lcm(result[1], data[i + 1]);
+        result[0] = _gcd(result[0], data[i + 1]);
+        result[1] = _lcm(result[1], data[i + 1]);
       } else {
-        result[0] = gcd(data[i], data[i + 1]);
-        result[1] = lcm(data[i], data[i + 1]);
+        result[0] = _gcd(data[i], data[i + 1]);
+        result[1] = _lcm(data[i], data[i + 1]);
       }
     }
     return Result(greatestCommonDivisor: result[0], leastCommonMultiple: result[1]);

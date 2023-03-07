@@ -21,7 +21,6 @@ extension Root on num {
     int accur,
   ) {
     if (a < 0 || n <= 0 || accur < 0) {
-      //  print('EXEP a - $a  n - $n accur - $accur');
       return null;
     }
     double accuracy = 1 / _myPow(10, accur);

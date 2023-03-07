@@ -37,6 +37,11 @@ class _NumberEightViewState extends State<NumberEightView> {
 
     setState(() {});
   }
+  @override
+  void dispose() {
+    _controllerEmail.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

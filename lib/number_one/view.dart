@@ -52,6 +52,11 @@ class _NumberOneViewState extends State<NumberOneView> {
     simpleDelimeters = result.simpleDelimeters!;
     setState(() {});
   }
+  @override
+  void dispose() {
+    _myControllerOne.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

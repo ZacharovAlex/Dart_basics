@@ -54,6 +54,14 @@ class _NumberSevenViewState extends State<NumberSevenView> {
     setState(() {});
   }
 
+
+  @override
+  void dispose() {
+    _controllerA.dispose();
+    _controllerN.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -30,6 +30,11 @@ class _NumberFiveViewState extends State<NumberFiveView> {
     _controllerWordString.clear();
     setState(() {});
   }
+  @override
+  void dispose() {
+    _controllerWordString.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

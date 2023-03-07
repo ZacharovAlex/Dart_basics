@@ -72,6 +72,14 @@ class _NumberSixViewState extends State<NumberSixView> {
   }
 
   @override
+  void dispose() {
+    _controllerX.dispose();
+    _controllerY.dispose();
+    _controllerZ.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

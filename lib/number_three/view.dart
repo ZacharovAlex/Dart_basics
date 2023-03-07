@@ -6,7 +6,6 @@ import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
 import 'logic.dart';
 
-final _controllerString = TextEditingController();
 
 class NumberThreeView extends StatefulWidget {
   final String title;
@@ -18,6 +17,7 @@ class NumberThreeView extends StatefulWidget {
 }
 
 class _NumberThreeViewState extends State<NumberThreeView> {
+  final _controllerString = TextEditingController();
   var num = [];
   bool isValidate = false;
 
@@ -34,6 +34,12 @@ class _NumberThreeViewState extends State<NumberThreeView> {
   void clear() {
     _controllerString.clear();
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _controllerString.dispose();
+    super.dispose();
   }
 
   @override

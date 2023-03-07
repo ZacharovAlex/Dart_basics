@@ -36,6 +36,12 @@ class _NumberFourViewState extends State<NumberFourView> {
   }
 
   @override
+  void dispose() {
+    _controllerString.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

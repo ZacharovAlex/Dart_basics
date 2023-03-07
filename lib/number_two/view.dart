@@ -4,8 +4,6 @@ import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
 import 'logic.dart';
 
-final _controllerDecimals = TextEditingController();
-final _controllerBinary = TextEditingController();
 
 class NumberTwoView extends StatefulWidget {
   final String title;
@@ -17,6 +15,8 @@ class NumberTwoView extends StatefulWidget {
 }
 
 class _NumberTwoViewState extends State<NumberTwoView> {
+  final _controllerDecimals = TextEditingController();
+  final _controllerBinary = TextEditingController();
   var resultToDecimal = '';
   var resultToBinary = '';
   var _currentAccuracy=5;
@@ -53,6 +53,12 @@ class _NumberTwoViewState extends State<NumberTwoView> {
     setState(() {
 
     });
+  }
+  @override
+  void dispose() {
+    _controllerDecimals.dispose();
+    _controllerBinary.dispose();
+    super.dispose();
   }
 
   @override

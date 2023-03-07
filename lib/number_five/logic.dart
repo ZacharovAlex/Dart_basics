@@ -1,6 +1,6 @@
 class FindNumbersWords {
   final List<String> data;
-  static const Map<String, int> numbers = {
+  static const Map<String, int> _numbers = {
     'one': 1,
     'two': 2,
     'three': 3,
@@ -19,8 +19,8 @@ class FindNumbersWords {
     var answerSet = <int>{};
     for (var word in data) {
       word = word.replaceAll(' ', '');
-      if (numbers.containsKey(word.toLowerCase())) {
-        answerSet.add(numbers[word]!);
+      if (_numbers.containsKey(word.toLowerCase())) {
+        answerSet.add(_numbers[word]!);
       }
     }
     return answerSet;

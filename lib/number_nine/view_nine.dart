@@ -53,6 +53,15 @@ class _NumberNineViewState extends State<NumberNineView> {
   }
 
   @override
+  void dispose() {
+    _myControllerFormula.dispose();
+    _myControllerFrom.dispose();
+    _myControllerTo.dispose();
+    _myControllerAccuracy.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

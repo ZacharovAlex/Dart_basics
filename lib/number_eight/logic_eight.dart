@@ -24,7 +24,7 @@ mixin MailSystem {
 }
 
 class UserManager<T extends User> {
-  List<User> userList = [User('dsds@dwds'), AdminUser('email@bdsdbh')];
+  List<User> userList = [];
 
   List<User> addUser(User user) {
     userList.add(user);
