@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:skillboxdemo/number_one/utils.dart';
+
 
 import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
+import '../skillbox_work2_logic/logic_number_one.dart';
 
 class NumberOneView extends StatefulWidget {
   const NumberOneView({super.key, required this.title});
@@ -41,15 +42,16 @@ class _NumberOneViewState extends State<NumberOneView> {
   }
 
   void resultNokNod() {
-    var result = NodNok(listInt).gcdList();
-    leastCommonMultiple = result.leastCommonMultiple;
-    greatestCommonDivisor = result.greatestCommonDivisor;
+    greatestCommonDivisor = NodNok().gcdFromList(listInt);
+    //print(greatestCommonDivisor);
+    leastCommonMultiple = NodNok().lcmFromList(listInt);
+   // greatestCommonDivisor = result.greatestCommonDivisor;
     setState(() {});
   }
 
   void simpleDelimeterLastNum() {
-    var result = NodNok(listInt).primeFactors();
-    simpleDelimeters = result.simpleDelimeters!;
+  //  var result = NodNok(listInt).primeFactors();
+   simpleDelimeters = NodNok().primeFactors(listInt.last);
     setState(() {});
   }
   @override

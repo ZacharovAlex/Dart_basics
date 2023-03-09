@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 
 import '../commonClasses.dart';
-import 'logic.dart';
+import '../skillbox_work2_logic/logic_number_three.dart';
 
 
 class NumberThreeView extends StatefulWidget {
@@ -22,7 +22,7 @@ class _NumberThreeViewState extends State<NumberThreeView> {
   bool isValidate = false;
 
   void parseString() {
-    num = ParseStringForNum(_controllerString.text).parsing();
+    num = ParseStringForNum().parsing(_controllerString.text);
     setState(() {});
   }
 

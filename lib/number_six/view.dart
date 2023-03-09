@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 
 import '../commonClasses.dart';
-import 'logic.dart';
+import '../skillbox_work2_logic/logic_number_six.dart';
 
 class NumberSixView extends StatefulWidget {
   final String title;

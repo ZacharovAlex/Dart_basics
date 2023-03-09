@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:skillboxdemo/skillbox_work2_logic/logic_number_six.dart';
 
-import 'number_six/logic.dart';
 
 class MyFormField extends StatelessWidget {
   final RegExp? regex;

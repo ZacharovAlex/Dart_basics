@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 
 import '../commonClasses.dart';
-import 'logic.dart';
+import '../skillbox_work2_logic/logic_number_four.dart';
 
 
 class NumberFourView extends StatefulWidget {
@@ -20,8 +20,8 @@ class _NumberFourViewState extends State<NumberFourView> {
   bool isValidate = false;
 
   void findWordsStart() {
-    result = FindWords(_controllerString.text.split(','))
-        .findWords(); //TODO test маша,петя,маша,валя,миша,петя,петя
+    result = FindWords()
+        .findWords(_controllerString.text.split(',')); //TODO test маша,петя,маша,валя,миша,петя,петя
     setState(() {});
   }
 

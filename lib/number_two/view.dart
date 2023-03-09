@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 
 import '../commonClasses.dart';
-import 'logic.dart';
+import '../skillbox_work2_logic/logic_number_two.dart';
 
 
 class NumberTwoView extends StatefulWidget {
@@ -17,7 +17,7 @@ class NumberTwoView extends StatefulWidget {
 class _NumberTwoViewState extends State<NumberTwoView> {
   final _controllerDecimals = TextEditingController();
   final _controllerBinary = TextEditingController();
-  var resultToDecimal = '';
+  double? resultToDecimal ;
   var resultToBinary = '';
   var _currentAccuracy=5;
   bool isBinaryFloat =false;
@@ -38,13 +38,13 @@ class _NumberTwoViewState extends State<NumberTwoView> {
   void toDecimal() {
     final data = _controllerBinary.text.isEmpty ? '0' : _controllerBinary.text;
 
-    resultToDecimal = BinaryDecimalSystem(data,_currentAccuracy).toDecimal();
+    resultToDecimal = BinaryDecimalSystem().toDecimal(data,_currentAccuracy);
     setState(() {});
   }
 
   void toBinary() {
     final data = _controllerDecimals.text.isEmpty ? '0' : _controllerDecimals.text;
-    resultToBinary = BinaryDecimalSystem(data,_currentAccuracy).toBinary();
+    resultToBinary = BinaryDecimalSystem().toBinary(double.parse(data),_currentAccuracy);
     setState(() {});
   }
 
@@ -135,14 +135,14 @@ class _NumberTwoViewState extends State<NumberTwoView> {
                       ],
                     )
                   : const SizedBox(),
-              resultToDecimal != ''
+              resultToDecimal != null
                   ? Column(
                       children: [
                         const Text('В десятичном представлении '),
                         SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            resultToDecimal,
+                            resultToDecimal.toString(),
                             style: const TextStyle(fontSize: 20),
                           ),
                         ),
