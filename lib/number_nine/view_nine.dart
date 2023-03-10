@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
-import 'logic_nine.dart';
+import '../skillbox_work2_logic/logic_number_nine.dart';
 
 class NumberNineView extends StatefulWidget {
   final String title;
@@ -47,7 +47,7 @@ class _NumberNineViewState extends State<NumberNineView> {
 
   void parseString() {
     result = integralRimana.resultRiman(_myControllerFormula.text, double.parse(_myControllerFrom.text),
-        double.parse(_myControllerTo.text), int.parse(_myControllerAccuracy.text));
+        double.parse(_myControllerTo.text), int.parse(_myControllerAccuracy.text),2);
 
     setState(() {});
   }
@@ -144,9 +144,9 @@ class _NumberNineViewState extends State<NumberNineView> {
                   ? Text(
                       'Интеграл от ${_myControllerFormula.text} : ${result.answer} с точностью в ${result.accuracy}')
                   : const SizedBox(),
-              (result.badPoints != null && result.badPoints!.isNotEmpty)
+              (result.badPointsDiapazon != null && result.badPointsDiapazon!.isNotEmpty)
                   ? Text(
-                      'Нет значений функции в диапазонах : ${result.badPoints!.first} - ${result.badPoints!.last} ')
+                      'Нет значений функции в диапазонах : ${result.badPointsDiapazon!.first} - ${result.badPointsDiapazon!.last} ')
                   : const SizedBox(),
               (result.infinitePoints != null && result.infinitePoints!.isNotEmpty)
                   ? Text('Функция уходит в беесконечность в значениях  : ${result.infinitePoints!} ')

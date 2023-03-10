@@ -27,8 +27,6 @@ void main() {
       final decimalZero = binaryDecimal.toDecimal('0.0010101001111111', 10);
       final decimalInt = binaryDecimal.toDecimal('10001.0', 10);
       final decimalIntNegative = binaryDecimal.toDecimal('-1101100001.0', 10);
-      //  final fdfd = double.parse('1000100010.1110100101');
-      //   expect(fdfd, 1000100010.111);
       expect(decimal, 546.9111328125);
       expect(decimalZero, 0.1650390625);
       expect(decimalInt, 17);

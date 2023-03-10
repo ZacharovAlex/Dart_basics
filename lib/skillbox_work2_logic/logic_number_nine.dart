@@ -2,25 +2,26 @@ import 'package:function_tree/function_tree.dart';
 
 class RimanAnswer {
   String? accuracy;
-  String? answer;
-  List<String>? badPoints = [];
+  double? answer;
+  String? error;
+  List<String>? badPointsDiapazon = [];
   List<double>? goodPoints = [];
   List<String>? infinitePoints = [];
 
-  RimanAnswer({this.answer, this.badPoints, this.goodPoints, this.accuracy, this.infinitePoints});
+  RimanAnswer({this.answer, this.badPointsDiapazon, this.goodPoints, this.accuracy, this.infinitePoints,this.error});
 }
 
 class Riman {
-  RimanAnswer resultRiman(String function, double x1, double x2, int accuracy) {
+  RimanAnswer resultRiman(String function, double x1, double x2, int accuracy,int afterDotCount) {
     RimanAnswer answer =
-        RimanAnswer(answer: '', badPoints: [], goodPoints: [], accuracy: '', infinitePoints: []);
+        RimanAnswer(answer: null, badPointsDiapazon: [], goodPoints: [], accuracy: '', infinitePoints: [], error: null);
     var rasstoyanie = _rasstoianie(x1, x2);
     num expression = 0.0;
     SingleVariableFunction f;
     try {
       f = function.toSingleVariableFunction();
     } catch (e) {
-      return RimanAnswer(answer: 'Не могу преобразовать формулу!');
+      return RimanAnswer(error: 'Не могу преобразовать формулу!');
     }
     var square = 0.0;
     var shirina = rasstoyanie / accuracy;
@@ -33,14 +34,14 @@ class Riman {
         continue;
       }
       if (expression.isNaN) {
-        answer.badPoints!.add(x1.toStringAsFixed(2));
+        answer.badPointsDiapazon!.add(x1.toStringAsFixed(2));
         expression = 0;
       }
       square += expression.abs() * shirina;
 
       x1 = x1 + shirina;
     }
-    answer.answer = square.toString();
+    answer.answer = double.parse(square.toStringAsFixed(afterDotCount));
     return answer;
   }
 
