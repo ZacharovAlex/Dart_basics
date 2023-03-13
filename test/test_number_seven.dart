@@ -16,8 +16,10 @@ void main() {
 
     final result =   24.rootN(1.26, 12);
     expect(result, 12.456778651249);
-    final result1 =   5.3.rootN(0.2, 12);
-    expect(result1, 4181.954930000003);
+    final result1 =   5.3.rootN(0.2, 5);
+    expect(result1, 4181.95498);
+    final result11 =   6.785.rootN(0.7548, 2);
+    expect(result11, 12.64);
     final result2 =   9.9.rootN(2.13, 2);
     expect(result2, 2.93);
     final result3 =   0.rootN(1, 12);

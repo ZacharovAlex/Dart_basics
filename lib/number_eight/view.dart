@@ -37,6 +37,7 @@ class _NumberEightViewState extends State<NumberEightView> {
 
     setState(() {});
   }
+
   @override
   void dispose() {
     _controllerEmail.dispose();
@@ -94,11 +95,30 @@ class _NumberEightViewState extends State<NumberEightView> {
               const SizedBox(
                 height: 10,
               ),
-              userManager.printEmail(),
+              MailList(manager: userManager),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class MailList extends StatelessWidget {
+  final UserManager manager;
+
+  const MailList({Key? key, required this.manager}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemCount: manager.userList.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: Text(manager.printEmail()[index]),
+          );
+        });
   }
 }

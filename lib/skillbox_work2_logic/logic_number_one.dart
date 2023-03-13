@@ -9,10 +9,6 @@ import 'dart:math';
 // }
 
 class NodNok {
-  // final List<int> _data;
-
-  // NodNok(this._data);
-
   List<int> primeFactors(int value) {
     var isNegative = false;
     var n = value;

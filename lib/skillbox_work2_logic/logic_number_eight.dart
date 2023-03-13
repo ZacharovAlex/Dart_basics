@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class User with MailSystem {
   final String email;
 
@@ -24,14 +22,14 @@ mixin MailSystem {
 }
 
 class UserManager<T extends User> {
-  List<User> userList = [];
+  List<T> userList = [];
 
-  List<User> addUser(User user) {
+  List<T> addUser(T user) {
     userList.add(user);
     return userList;
   }
 
-  List<User> reduceUser() {
+  List<T> reduceUser() {
     if (userList.isNotEmpty) {
       userList.removeLast();
       return userList;
@@ -40,16 +38,21 @@ class UserManager<T extends User> {
     }
   }
 
-  ListView printEmail() {
-    return ListView.builder(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemCount: userList.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Text(userList[index].email),
-          );
-        });
-    //  }
+  List<String> printEmail() {
+    List<String> mailList = [];
+    for (var user in userList) {
+      mailList.add(user.email);
+    }
+    return mailList;
   }
 }
+
+// ListView.builder(
+// scrollDirection: Axis.vertical,
+// shrinkWrap: true,
+// itemCount: userList.length,
+// itemBuilder: (context, index) {
+// return Card(
+// child: Text(userList[index].email),
+// );
+// });
