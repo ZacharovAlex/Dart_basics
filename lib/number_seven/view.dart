@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
-import 'package:skillboxdemo/skillbox_work2_logic/extension_on_num_seven.dart';
+import 'package:skillbox_dart_basics/skillbox_dart_basics.dart';
 
 import '../commonClasses.dart';
 import 'logic.dart';

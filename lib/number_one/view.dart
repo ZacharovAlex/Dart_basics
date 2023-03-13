@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
-import '../skillbox_work2_logic/logic_number_one.dart';
+import 'package:skillbox_dart_basics/skillbox_dart_basics.dart';
 
 class NumberOneView extends StatefulWidget {
   const NumberOneView({super.key, required this.title});

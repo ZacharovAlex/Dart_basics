@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:skillboxdemo/extension_validation.dart';
 import '../commonClasses.dart';
-import '../skillbox_work2_logic/logic_number_eight.dart';
+import 'package:skillbox_dart_basics/skillbox_dart_basics.dart';
+
 
 class NumberEightView extends StatefulWidget {
   final String title;

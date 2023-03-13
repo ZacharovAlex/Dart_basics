@@ -131,6 +131,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  skillbox_dart_basics:
+    dependency: "direct main"
+    description:
+      name: skillbox_dart_basics
+      sha256: "0a257814e4086524682b094de910bec722e875dc2e68254b0ef9a6edc48bf2fc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -193,4 +201,5 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
-  dart: ">=2.19.2 <3.0.0"
+  dart: ">=2.19.3 <3.0.0"
+  flutter: ">=1.17.0"
